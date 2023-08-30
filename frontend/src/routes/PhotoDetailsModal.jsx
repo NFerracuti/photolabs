@@ -4,7 +4,8 @@ import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
-const PhotoDetailsModal = ({modalState, setCloseModal, modalImage}) => {
+const PhotoDetailsModal = ({modalState, setCloseModal, modalImage, photos, passPhotoId, setOpenModal}) => {
+
   console.log("modalImage: ", modalImage);
   if (!modalState) return null;
   return (
@@ -17,12 +18,16 @@ const PhotoDetailsModal = ({modalState, setCloseModal, modalImage}) => {
       <img className="photo-details-modal__image" 
       src={modalImage.urls.full} 
       alt="display image"/>
-      {/* <div>
+      <div className="photo-details-modal__images">
+        Photographer: {modalImage.user.name}
+        <br></br>
+        <br></br>
+        Similar Images
         <PhotoList 
-        photos={modalImage} 
-        passPhotoId={null} 
-        setOpenModal={null}/>
-      </div> */}
+        photos={photos} 
+        passPhotoId={passPhotoId} 
+        setOpenModal={setOpenModal}/>
+      </div>
     </div>
   )
 };

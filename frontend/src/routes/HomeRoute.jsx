@@ -5,20 +5,8 @@ import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 import TopNavigation from '../components/TopNavigationBar';
 
- const HomeRoute = ({photos, topics, setOpenModal}) => {
-  const [favPhotos, setFavPhotos] = useState([]);
+ const HomeRoute = ({photos, topics, setOpenModal, passPhotoId, favPhotos}) => {
 
-  const passPhotoId = (childData) => {
-
-    if (favPhotos.includes(childData)) {
-      const newFavPhotos = favPhotos.filter((element) => element !== childData)
-      setFavPhotos(newFavPhotos);
-      return false;
-    } else {
-      setFavPhotos((current) => [...current, childData]);
-      return true;
-    }
-  };
   
   let favLength = favPhotos.length || null;
 
