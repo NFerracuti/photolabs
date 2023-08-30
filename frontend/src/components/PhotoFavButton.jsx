@@ -2,11 +2,11 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
+function PhotoFavButton({passPhotoId, id}) {
   const[like, setLike] = useState(false);
 
   const switchLike = () => {
-    setLike(!like)
+    setLike(passPhotoId(id));
   };
 
   return (

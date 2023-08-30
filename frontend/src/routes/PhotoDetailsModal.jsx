@@ -3,12 +3,18 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = () => {
+const PhotoDetailsModal = ({modalState, setCloseModal, modalImage}) => {
+  if (!modalState) return null;
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} alt="close symbol" />
-      </button>
+      <div>
+        <button onClick={setCloseModal} className="photo-details-modal__close-button">
+          <img src={closeSymbol} alt="close symbol"/>
+        </button>
+      </div>
+      <img className="photo-details-modal__image" 
+      src={modalImage} 
+      alt="display image"/>
     </div>
   )
 };
