@@ -2,8 +2,10 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({modalState, setCloseModal, modalImage}) => {
+  console.log("modalImage: ", modalImage);
   if (!modalState) return null;
   return (
     <div className="photo-details-modal">
@@ -13,8 +15,14 @@ const PhotoDetailsModal = ({modalState, setCloseModal, modalImage}) => {
         </button>
       </div>
       <img className="photo-details-modal__image" 
-      src={modalImage} 
+      src={modalImage.urls.full} 
       alt="display image"/>
+      {/* <div>
+        <PhotoList 
+        photos={modalImage} 
+        passPhotoId={null} 
+        setOpenModal={null}/>
+      </div> */}
     </div>
   )
 };

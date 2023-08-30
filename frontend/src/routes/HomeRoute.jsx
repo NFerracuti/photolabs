@@ -25,7 +25,8 @@ import TopNavigation from '../components/TopNavigationBar';
   return (
     <div className="home-route">
       <TopNavigation topics={topics} favLength={favLength}/>
-      <PhotoList photos={photos} 
+      <PhotoList 
+      photos={photos} 
       passPhotoId={passPhotoId} 
       setOpenModal={setOpenModal}/>
     </div>

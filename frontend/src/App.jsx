@@ -15,9 +15,9 @@ import { useState } from 'react';
   //to set the modal image
   const [modalImage, setModalImage] = useState(null);
 
-  const setOpenModal = (imageUrl) => {
+  const setOpenModal = (imageDetails) => {
     setModalState(true);
-    setModalImage(imageUrl);
+    setModalImage(imageDetails);
   }
 
   const setCloseModal = () => setModalState(false);
@@ -25,7 +25,13 @@ import { useState } from 'react';
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} setOpenModal={setOpenModal}/>
-      <PhotoDetailsModal modalState={modalState} setCloseModal={setCloseModal} modalImage={modalImage}/>
+      <PhotoDetailsModal 
+        modalState={modalState} 
+        setCloseModal={setCloseModal} 
+        modalImage={modalImage}
+        photos={photos} 
+        passPhotoId={passPhotoId} 
+        setOpenModal={setOpenModal}/>
     </div>
   )
 }
