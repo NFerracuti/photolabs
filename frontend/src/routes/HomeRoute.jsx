@@ -5,7 +5,7 @@ import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 import TopNavigation from '../components/TopNavigationBar';
 
- const HomeRoute = ({photos, topics, setOpenModal, passPhotoId, favPhotos}) => {
+ const HomeRoute = ({photos, topics, setOpenModal, passPhotoId, favPhotos, switchLike, like}) => {
 
   
   let favLength = favPhotos.length || null;
@@ -16,7 +16,9 @@ import TopNavigation from '../components/TopNavigationBar';
       <PhotoList 
       photos={photos} 
       passPhotoId={passPhotoId} 
-      setOpenModal={setOpenModal}/>
+      setOpenModal={setOpenModal}
+      switchLike={switchLike}
+      like={like}/>
     </div>
   )
 }

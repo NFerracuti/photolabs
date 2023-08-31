@@ -2,12 +2,16 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({element, passPhotoId, setOpenModal}) => {
+const PhotoListItem = ({element, passPhotoId, setOpenModal, switchLike, like}) => {
 
   return (
     <div className="photo-list">
         <div className="photo-list__item">
-        <PhotoFavButton passPhotoId={passPhotoId} id={element.id}/>
+        <PhotoFavButton 
+        passPhotoId={passPhotoId} 
+        id={element.id}
+        switchLike={switchLike}
+        like={like}/>
         <img className="photo-list__image" 
         src={element.urls.regular} 
         alt="display image"

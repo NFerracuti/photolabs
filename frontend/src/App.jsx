@@ -24,6 +24,13 @@ import { useState } from 'react';
     }
   };
 
+  // set photo fav button/icon state here so it can be used globally
+  const[like, setLike] = useState(false);
+  console.log("photos: ", photos);
+  const switchLike = () => {
+    setLike(passPhotoId(id));
+  };
+
   // to set the modal view
   const [modalState, setModalState] = useState(false);
   //to set the modal image
@@ -38,7 +45,14 @@ import { useState } from 'react';
   console.log("modalImage: ", modalImage);
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} setOpenModal={setOpenModal} passPhotoId={passPhotoId} favPhotos={favPhotos}/>
+      <HomeRoute 
+      photos={photos} 
+      topics={topics} 
+      setOpenModal={setOpenModal} 
+      passPhotoId={passPhotoId} 
+      favPhotos={favPhotos}
+      switchLike={switchLike}
+      like={like}/>
       <PhotoDetailsModal 
         modalState={modalState} 
         setCloseModal={setCloseModal} 

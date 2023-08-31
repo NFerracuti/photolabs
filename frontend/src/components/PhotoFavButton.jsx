@@ -2,12 +2,7 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({passPhotoId, id}) {
-  const[like, setLike] = useState(false);
-
-  const switchLike = () => {
-    setLike(passPhotoId(id));
-  };
+function PhotoFavButton({passPhotoId, id, switchLike, like}) {
 
   return (
     <div onClick={switchLike} className="photo-list__fav-icon">

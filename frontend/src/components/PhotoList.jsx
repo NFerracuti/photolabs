@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
-const PhotoList = ({photos, passPhotoId, setOpenModal}) => {
+const PhotoList = ({photos, passPhotoId, setOpenModal, switchLike, like}) => {
   return (
     <ul className="photo-list" data="data">
       {photos.map((element) => (
@@ -11,7 +11,9 @@ const PhotoList = ({photos, passPhotoId, setOpenModal}) => {
         key={element.id} 
         element={element} 
         passPhotoId={passPhotoId} 
-        setOpenModal={setOpenModal}/>
+        setOpenModal={setOpenModal}
+        switchLike={switchLike}
+        like={like}/>
       ))}
     </ul>
   );
