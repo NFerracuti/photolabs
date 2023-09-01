@@ -9,6 +9,19 @@
   width: 55%;
   overflow-y: scroll;
   border-radius: 12px;
+  padding: 8px;
+  border-width: 0.5px;
+  max-width: fit-content;
+}
+
+.photo-list__item-modal {
+  margin-left: 35px;
+  margin-right: 35px;
+  padding-bottom: 8px;
+  -webkit-box-shadow: 0 4px 6px -6px #222;
+  -moz-box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 4px 6px -6px #222;
+  max-width: fit-content;
 }
 
 .photo-details-modal__close-button {
@@ -20,20 +33,18 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 16px;
-  margin-top: 16px;
 }
 
 .photo-details-modal__images {
-  margin-left: 36px;
-  margin-top: 8px;
+  margin: 36px;
 }
 
 .photo-details-modal__image {
-  max-width: 95%;
-  border-radius: 8px;
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 0px;
   max-height: 95%;
-  margin: 2%;
+  margin: auto;
 }
 
 .photo-details-modal__top-bar {

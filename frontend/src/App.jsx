@@ -13,7 +13,6 @@ import { useState } from 'react';
   const [favPhotos, setFavPhotos] = useState([]);
 
   const passPhotoId = (childData) => {
-
     if (favPhotos.includes(childData)) {
       const newFavPhotos = favPhotos.filter((element) => element !== childData)
       setFavPhotos(newFavPhotos);
@@ -22,13 +21,6 @@ import { useState } from 'react';
       setFavPhotos((current) => [...current, childData]);
       return true;
     }
-  };
-
-  // set photo fav button/icon state here so it can be used globally
-  const[like, setLike] = useState(false);
-  console.log("photos: ", photos);
-  const switchLike = () => {
-    setLike(passPhotoId(id));
   };
 
   // to set the modal view
@@ -42,7 +34,7 @@ import { useState } from 'react';
   }
 
   const setCloseModal = () => setModalState(false);
-  console.log("modalImage: ", modalImage);
+
   return (
     <div className="App">
       <HomeRoute 
@@ -51,15 +43,15 @@ import { useState } from 'react';
       setOpenModal={setOpenModal} 
       passPhotoId={passPhotoId} 
       favPhotos={favPhotos}
-      switchLike={switchLike}
-      like={like}/>
+      />
       <PhotoDetailsModal 
         modalState={modalState} 
         setCloseModal={setCloseModal} 
         modalImage={modalImage}
         photos={photos} 
         passPhotoId={passPhotoId} 
-        setOpenModal={setOpenModal}/>
+        setOpenModal={setOpenModal}
+        favPhotos={favPhotos}/>
     </div>
   )
 }

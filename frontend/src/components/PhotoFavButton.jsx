@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({passPhotoId, id, switchLike, like}) {
+function PhotoFavButton({passPhotoId, id, like}) {
 
   return (
-    <div onClick={switchLike} className="photo-list__fav-icon">
+    <div onClick={() => passPhotoId(id)} className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">
         <FavIcon className=".photo-list--fav-icon" selected={like}/>
       </div>

@@ -3,27 +3,42 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
 
-const PhotoDetailsModal = ({modalState, setCloseModal, modalImage, photos, passPhotoId, setOpenModal}) => {
+const PhotoDetailsModal = ({modalState, setCloseModal, modalImage, photos, passPhotoId, setOpenModal, favPhotos}) => {
 
-  console.log("modalImage: ", modalImage);
   if (!modalState) return null;
+  let like = favPhotos.includes(modalImage.id)
+
   return (
     <div className="photo-details-modal">
-      <div>
         <button onClick={setCloseModal} className="photo-details-modal__close-button">
           <img src={closeSymbol} alt="close symbol"/>
         </button>
+      <div>
+        <div className="photo-list__item-modal">
+        <PhotoFavButton 
+        passPhotoId={passPhotoId} 
+        id={modalImage.id}
+        like={like}/>
+        <img className="photo-details-modal__image" 
+        src={modalImage.urls.full} 
+        alt="display image"/>
+        <div className="photo-list__user-details">
+          <img className="photo-list__user-profile" src={modalImage.user.profile} alt="profile image"></img>
+          <div className="photo-list__user-info">
+            {modalImage.user.username}
+            <div className="photo-list__user-location">
+              {`${modalImage.location.city}, ${modalImage.location.country}`}
+            </div>
+          </div>
+        </div>
       </div>
-      <img className="photo-details-modal__image" 
-      src={modalImage.urls.full} 
-      alt="display image"/>
+    </div>
       <div className="photo-details-modal__images">
-        Photographer: {modalImage.user.name}
-        <br></br>
-        <br></br>
         Similar Images
         <PhotoList 
+        favPhotos={favPhotos}
         photos={photos} 
         passPhotoId={passPhotoId} 
         setOpenModal={setOpenModal}/>

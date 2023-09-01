@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 
  // import PhotoListItem from './components/PhotoListItem';
 import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 import TopNavigation from '../components/TopNavigationBar';
 
- const HomeRoute = ({photos, topics, setOpenModal, passPhotoId, favPhotos, switchLike, like}) => {
+ const HomeRoute = ({photos, topics, setOpenModal, passPhotoId, favPhotos, element}) => {
 
-  
   let favLength = favPhotos.length || null;
 
   return (
     <div className="home-route">
       <TopNavigation topics={topics} favLength={favLength}/>
       <PhotoList 
+      element={element}
       photos={photos} 
       passPhotoId={passPhotoId} 
       setOpenModal={setOpenModal}
-      switchLike={switchLike}
-      like={like}/>
+      favPhotos={favPhotos}/>
     </div>
   )
 }
