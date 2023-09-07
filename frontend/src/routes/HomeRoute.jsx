@@ -5,13 +5,15 @@ import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 import TopNavigation from '../components/TopNavigationBar';
 
- const HomeRoute = ({photos, topics, setOpenModal, passPhotoId, favPhotos, element}) => {
+ const HomeRoute = ({photos, topics, setOpenModal, passPhotoId, favPhotos, element, fetchPhotosByTopic}) => {
 
   let favLength = favPhotos.length || null;
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} favLength={favLength}/>
+      <TopNavigation topics={topics} 
+      favLength={favLength}
+      fetchPhotosByTopic={fetchPhotosByTopic}/>
       <PhotoList 
       element={element}
       photos={photos} 

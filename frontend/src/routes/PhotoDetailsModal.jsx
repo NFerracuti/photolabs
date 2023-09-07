@@ -4,11 +4,13 @@ import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
+import { useEffect } from 'react';
 
-const PhotoDetailsModal = ({modalState, setCloseModal, modalImage, photos, passPhotoId, setOpenModal, favPhotos}) => {
+const PhotoDetailsModal = ({modalState, setCloseModal, modalImage, passPhotoId, setOpenModal, favPhotos}) => {
 
   if (!modalState) return null;
   let like = favPhotos.includes(modalImage.id)
+
 
   return (
     <div className="photo-details-modal">
@@ -39,7 +41,7 @@ const PhotoDetailsModal = ({modalState, setCloseModal, modalImage, photos, passP
         Similar Images
         <PhotoList 
         favPhotos={favPhotos}
-        photos={photos} 
+        photos={modalImage.similar_photos} 
         passPhotoId={passPhotoId} 
         setOpenModal={setOpenModal}/>
       </div>
