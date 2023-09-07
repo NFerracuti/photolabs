@@ -4,7 +4,6 @@ import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
-import { useEffect } from 'react';
 
 const PhotoDetailsModal = ({modalState, setCloseModal, modalImage, passPhotoId, setOpenModal, favPhotos}) => {
 
