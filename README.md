@@ -57,7 +57,7 @@ npm start
 ## Application Screenshots
 
 ### PhotoLabs Home Page
-![PhotoLabs Landing Page](.docs/landing_page.png)
+![PhotoLabs Landing Page](./docs/landing_page.png)
 
 
 ### User can favourite photos, which are stored accross the app. Notification and counter for the number of fav photos in nav bar.
